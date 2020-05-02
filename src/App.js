@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Hand from './Components/Hand'
+import Deck from './Components/Deck'
+import Stack from './Components/Stack'
+import InfoBoard from './Components/InfoBoard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="text-3xl mt-3 text-center font-bold">Uno</h1>
+      <div className="flex justify-around mt-20">
+        <Deck></Deck>
+        <Stack></Stack>
+        <InfoBoard></InfoBoard>
+      </div>
+      <Hand></Hand>
     </div>
   );
 }
