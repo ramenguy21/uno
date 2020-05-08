@@ -5,6 +5,7 @@ import Stack from './Components/Stack'
 import InfoBoard from './Components/InfoBoard';
 
 function App() {
+
   return (
     <div>
       <h1 className="text-3xl mt-3 text-center font-bold">Uno</h1>

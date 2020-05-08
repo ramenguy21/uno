@@ -1,0 +1,26 @@
+[
+    {
+        "suit" : "red",
+        "value" : 0
+    },
+
+    {
+        "suit" : "red",
+        "value" : 1
+    },
+
+    {
+        "suit" : "red",
+        "value" : 1
+    },
+
+    {
+        "suit" : "red",
+        "value" : 2
+    },
+    
+    {
+        "suit" : "red",
+        "value" : 2
+    }
+]
