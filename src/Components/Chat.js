@@ -1,8 +1,5 @@
 import React from 'react'
-import io from 'socket.io-client'
-
-var socket = io('http://localhost:8080/');
-
+import socket from '../Config/socket-config'
 
 class Chat extends React.Component {
     constructor(props) {
@@ -10,7 +7,7 @@ class Chat extends React.Component {
 
         this.state = {
             chatbox: 'Message all players ...',
-            msgLog : ''
+            msgLog : ['']
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,10 +16,10 @@ class Chat extends React.Component {
 
     componentDidMount() {
         socket.on('chatmsg', (msg) => {
+            var intArr = this.state.msgLog.concat(msg)
             this.setState({
-                msgLog : msg
+                msgLog : intArr
             })
-            console.log(msg)
         })
     }
 
@@ -40,14 +37,12 @@ class Chat extends React.Component {
     }
 
     render() {
-        var m_chatlog = [];//add last 8 messages to this list
-        for (var i = 0; i < this.state.msgLog.length; i++) {
-            m_chatlog.push(<li key={i}>this.state.msgLog</li>);
-        }
-
+        var msgList = this.state.msgLog.map((msgContent) => 
+            <li>{msgContent}</li>
+        );
         return (
             <div>
-                <ul>{this.state.msgLog}</ul>
+                <ul>{msgList}</ul>
                 <form onSubmit={this.handleSubmit}>
                     <textarea value={this.state.chatbox} onChange={this.handleChange} />
                     <input className="py-2 rounded ml-2 px-5 bg-blue-500 hover:bg-blue-700 text-white font-bold" type="submit" value="Submit" />

@@ -2,6 +2,7 @@ var app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 //import CreateDeck from './deck.js'
+const utils = require('./utilities.js')
 
 app.get('/', (req, res) => {
     res.send('LANDING PAGE');
@@ -34,9 +35,9 @@ function resetTimeOut() {
 }
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
     socket.on('chatmsg', (msg) => {
         console.log('message: ' + msg);
+        socket.emit('chatmsg', msg)
     });
 
     players.push(socket);
