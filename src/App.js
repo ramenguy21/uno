@@ -13,7 +13,7 @@ import {
 function App() {
   return (
     <>
-      <GameView></GameView>
+      <LobbyView></LobbyView>
     </>               
   );
 }
